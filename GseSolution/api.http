@@ -1,0 +1,62 @@
+@host = https://localhost:7001
+
+### Health (anonymous)
+GET {{host}}/health
+
+### Login as engineer
+# @name login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "username": "engineer1", "password": "<the Seed:Password you set>" }
+
+### Summary
+GET {{host}}/api/reports/summary
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Categories
+GET {{host}}/api/categories
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Assets needing maintenance
+GET {{host}}/api/assets?status=MaintenanceRequired&page=1&pageSize=20
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### One asset
+GET {{host}}/api/assets/7
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Create asset
+POST {{host}}/api/assets
+Authorization: Bearer {{login.response.body.accessToken}}
+Content-Type: application/json
+
+{ "assetTag": "GSE-TUG-9001", "categoryId": 1, "totalOperatingHours": 0 }
+
+### Change asset status (Decommissioned needs Admin)
+PATCH {{host}}/api/assets/7/status
+Authorization: Bearer {{login.response.body.accessToken}}
+Content-Type: application/json
+
+{ "operationalStatus": "InService" }
+
+### Open (unresolved) orders
+GET {{host}}/api/maintenance-orders?isResolved=false&priority=Critical
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Create order
+POST {{host}}/api/maintenance-orders
+Authorization: Bearer {{login.response.body.accessToken}}
+Content-Type: application/json
+
+{ "assetId": 7, "priority": "High", "issueDescription": "Hydraulic pressure drop under load" }
+
+### Resolve order
+PATCH {{host}}/api/maintenance-orders/1/resolve
+Authorization: Bearer {{login.response.body.accessToken}}
+Content-Type: application/json
+
+{ "resolutionRemarks": "Seal replaced, pressure test passed." }
+
+### No token -> expect 401
+GET {{host}}/api/assets

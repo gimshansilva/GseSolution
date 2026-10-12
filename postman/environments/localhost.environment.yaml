@@ -1,0 +1,14 @@
+name: localhost
+values:
+  - key: baseUrl
+    value: 'https://localhost:7001'
+    enabled: true
+    type: default
+  - key: username
+    value: admin1
+    enabled: true
+    type: default
+  - key: password
+    value: 'ChangeMe-Dev-2026!'
+    enabled: true
+    type: default

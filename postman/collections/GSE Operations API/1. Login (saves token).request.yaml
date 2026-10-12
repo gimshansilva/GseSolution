@@ -1,0 +1,38 @@
+$kind: http-request
+url: "{{baseUrl}}/api/auth/login"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+auth:
+  type: noauth
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Login returns 200 OK', function () {
+        pm.response.to.have.status(200);
+      });
+
+      pm.test('Response has accessToken', function () {
+        const json = pm.response.json();
+        pm.expect(json).to.have.property('accessToken').that.is.a('string').and.not.empty;
+      });
+
+      pm.test('Response has role', function () {
+        const json = pm.response.json();
+        pm.expect(json).to.have.property('role').that.is.a('string').and.not.empty;
+      });
+
+      if (pm.response.code === 200) {
+        const json = pm.response.json();
+        pm.collectionVariables.set('token', json.accessToken);
+        console.log('✅ Token saved for user: ' + pm.environment.get('username') + ' (role: ' + json.role + ', expires: ' + json.expires + ')');
+      }
+    language: text/javascript
+order: 1000

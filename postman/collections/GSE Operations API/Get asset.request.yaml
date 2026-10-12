@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/api/assets/{{assetId}}"
+method: GET
+order: 6000

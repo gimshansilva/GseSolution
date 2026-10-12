@@ -1,0 +1,11 @@
+# Use this workspace to collaborate
+workspace:
+  id: 34a31ffc-fce0-4ec5-868c-d145578e5b64
+
+localResources:
+  specs:
+    - ../Gse.Api/obj/Debug/net8.0/EndpointInfo/Gse.Api.json
+
+cloudResources:
+  collections:
+    ../postman/collections/GSE Operations API: 285947b9-1d83-4af8-912d-01f0eb749258

@@ -23,7 +23,11 @@ no connection secret is needed on a LocalDB machine. For any other server, overr
 dotnet user-secrets set "ConnectionStrings:Gse" "Server=.\SQLEXPRESS;Database=GseOperationsDb;Trusted_Connection=True;TrustServerCertificate=True" --project Gse.Api
 ```
 
-The two secrets you must always set (never commit them):
+`Jwt:Key` is also present in `Gse.Api/appsettings.json` so the project runs without setup. That key is for local
+testing only: replace it (or override it with user-secrets / an environment variable) before any real deployment,
+and never reuse it elsewhere.
+
+The secrets below take priority over the file when set:
 
 ```powershell
 $b = New-Object byte[] 48

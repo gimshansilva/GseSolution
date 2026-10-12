@@ -1,0 +1,15 @@
+$kind: http-request
+name: Create asset (Engineer/Admin)
+url: "{{baseUrl}}/api/assets"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "assetTag": "GSE-TUG-9001",
+      "categoryId": 1,
+      "totalOperatingHours": 0
+    }
+order: 7000

@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseUrl}}/api/assets?status=MaintenanceRequired&page=1&pageSize=20"
+method: GET
+queryParams:
+  status: MaintenanceRequired
+  page: "1"
+  pageSize: "20"
+order: 5000

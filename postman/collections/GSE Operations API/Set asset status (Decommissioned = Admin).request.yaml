@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/api/assets/{{assetId}}/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "operationalStatus": "InService"
+    }
+order: 8000

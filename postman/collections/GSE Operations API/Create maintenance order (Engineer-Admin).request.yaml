@@ -1,0 +1,15 @@
+$kind: http-request
+name: Create maintenance order (Engineer/Admin)
+url: "{{baseUrl}}/api/maintenance-orders"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "assetId": 7,
+      "priority": "High",
+      "issueDescription": "Hydraulic pressure drop under load"
+    }
+order: 10000

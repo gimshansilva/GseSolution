@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseUrl}}/api/maintenance-orders?isResolved=false&page=1&pageSize=20"
+method: GET
+queryParams:
+  isResolved: "false"
+  page: "1"
+  pageSize: "20"
+order: 9000

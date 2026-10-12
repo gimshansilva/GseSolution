@@ -1,0 +1,14 @@
+$kind: collection
+description: ''
+variables:
+  - key: token
+    value: ''
+  - key: assetId
+    value: '1'
+  - key: orderId
+    value: '1'
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'

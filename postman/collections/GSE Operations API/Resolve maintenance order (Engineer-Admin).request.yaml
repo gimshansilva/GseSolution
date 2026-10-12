@@ -1,0 +1,13 @@
+$kind: http-request
+name: Resolve maintenance order (Engineer/Admin)
+url: "{{baseUrl}}/api/maintenance-orders/{{orderId}}/resolve"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "resolutionRemarks": "Seal replaced, pressure test passed."
+    }
+order: 11000

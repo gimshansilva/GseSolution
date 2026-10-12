@@ -105,3 +105,33 @@ They cover 401 / 403 / 404 / 409 / 400 / 429 paths as well as the happy paths.
 - Entities are hand-written (`Data/Entities.cs`), so `dotnet ef dbcontext scaffold` is not needed.
 - Validation uses a small action filter plus `FluentValidation` instead of the deprecated `FluentValidation.AspNetCore` package.
 - Login uses a real `AppUsers` table with hashed passwords and lockout, instead of a hard-coded list.
+
+## Web Interface
+
+<img width="1129" height="789" alt="Screenshot 2026-10-12 161441" src="https://github.com/user-attachments/assets/8ceaaf49-78c9-47b4-a988-c9652a921e78" />
+<img width="1131" height="865" alt="Screenshot 2026-10-12 161502" src="https://github.com/user-attachments/assets/9a2f559d-38e2-4ef9-88e3-e4aa7b5b54f8" />
+<img width="1129" height="866" alt="Screenshot 2026-10-12 161525" src="https://github.com/user-attachments/assets/ffa63140-bdd8-41dd-b27e-ce1c1b5f6a5b" />
+<img width="1130" height="581" alt="Screenshot 2026-10-12 161535" src="https://github.com/user-attachments/assets/a1f75ada-8782-44cd-a14a-da640c98ecb4" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
